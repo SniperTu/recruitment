@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    期待你加入我们，用技术探索一个新的世界
+{% if job_list %}
+<!--定义每一行为一个职位-->
+    <ul>
+    {% for job in job_list %}
+        <li>{{job.type_name}} <a href="/job/{{job.id}}/" style="color:#0000ff">{{job.job_name}}</a>{{ job.city_name}}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No jobs are available.</p>
+{% endif %}
+
+{% endblock %}
